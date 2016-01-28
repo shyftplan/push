@@ -36,7 +36,7 @@ Add a `config.push.json` file in your project and configure credentials / keys /
 ```js
 {
   "apn": {
-    "passphrase": "xxxxxxxxx",  
+    "passphrase": "xxxxxxxxx",
     "key": "apnProdKey.pem",
     "cert": "apnProdCert.pem"
   },
@@ -44,7 +44,7 @@ Add a `config.push.json` file in your project and configure credentials / keys /
     "passphrase": "xxxxxxxxx",
     "key": "apnDevKey.pem",
     "cert": "apnDevCert.pem"
-  },  
+  },
   "gcm": {
     "apiKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "projectNumber": xxxxxxxxxxxx
