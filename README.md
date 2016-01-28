@@ -23,9 +23,12 @@ Depending on the platforms you want to work with you will need some credentials 
 
 Have a look at the [Basic example](docs/BASIC.md)
 
-Read the [raix:push Newbie Manual](https://github.com/raix/push/issues/115) by [@harryward](https://github.com/harryward)
+Read the [raix:push Newbie Manual](http://stached.io/standalone/fBLmRhsAuPSxKBSgM) by [@harryward](https://github.com/harryward)
 
 Or check out the [DEMO](https://github.com/elvismercado/meteor-raix-push-demo) by [@elvismercado](https://github.com/elvismercado)
+
+Note:
+Version 3 uses the cordova npm plugin [phonegap-plugin-push](https://github.com/phonegap/phonegap-plugin-push#pushnotificationinitoptions)
 
 ## Config
 Add a `config.push.json` file in your project and configure credentials / keys / certificates:
@@ -33,7 +36,7 @@ Add a `config.push.json` file in your project and configure credentials / keys /
 ```js
 {
   "apn": {
-    "passphrase": "xxxxxxxxx",  
+    "passphrase": "xxxxxxxxx",
     "key": "apnProdKey.pem",
     "cert": "apnProdCert.pem"
   },
@@ -41,7 +44,7 @@ Add a `config.push.json` file in your project and configure credentials / keys /
     "passphrase": "xxxxxxxxx",
     "key": "apnDevKey.pem",
     "cert": "apnDevCert.pem"
-  },  
+  },
   "gcm": {
     "apiKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "projectNumber": xxxxxxxxxxxx
@@ -55,7 +58,7 @@ Add a `config.push.json` file in your project and configure credentials / keys /
   // "sendBatchSize": 1  Configurable number of notifications to send per batch
 }
 ```
-*Note: This file should be pure json, comments are not supported*
+*Note: This file should be pure json, comments are supported/stripped out before parsing*
 
 ## Common api
 ```js
@@ -82,6 +85,9 @@ Add a `config.push.json` file in your project and configure credentials / keys /
 ```js
     Push.id(); // Unified application id - not a token
     Push.setBadge(count); // ios specific - ignored everywhere else
+    Push.enabled(); // Return true or false
+    Push.enabled(false); // Will disable notifications
+    Push.enabled(true); // Will enable notifications (requires a token...)
 ```
 
 ## Security allow/deny send
